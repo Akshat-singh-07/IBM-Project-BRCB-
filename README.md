@@ -81,6 +81,8 @@ This is a smart and interactive chatbot built using **IBM Watson Assistant** tha
 ## 👨‍💻 Developed By
 
 **Akshat Singh**  
-Student Intern  
-Book Recommendation Chatbot Project using IBM Watson Assistant  
-📧 Email: akshatsingh26072005@gmail.com
+B.Tech Student, CSE (Specialization:Application Development using Cloud and Analytics Platforms) with IBM
+TEERTHANKER MAHAVEER UNIVERSITY, MORADABAD
+Academic Project under IBM Internship  
+Email: akshatsingh26072005@gmail.com 
+
