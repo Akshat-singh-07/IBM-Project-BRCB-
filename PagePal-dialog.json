@@ -1,0 +1,709 @@
+{
+  "intents": [
+    {
+      "intent": "book_recommendation",
+      "examples": [
+        {
+          "text": "Can you suggest a good book?"
+        },
+        {
+          "text": "Give me a fantasy book"
+        },
+        {
+          "text": "I want a book recommendation"
+        },
+        {
+          "text": "Recommend me a mystery novel"
+        },
+        {
+          "text": "suggestions"
+        },
+        {
+          "text": "yes"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "genre_fantasy",
+      "examples": [
+        {
+          "text": "fantasy book i want"
+        },
+        {
+          "text": "give me a fantasy book"
+        },
+        {
+          "text": "susggest me a fantasy"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "genre_fictional",
+      "examples": [
+        {
+          "text": "fictional"
+        },
+        {
+          "text": "fictional book"
+        },
+        {
+          "text": "Give me a fictional book"
+        },
+        {
+          "text": "I like fictional"
+        },
+        {
+          "text": "Name some fictional books"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "genre_mystery",
+      "examples": [
+        {
+          "text": "Myster books?"
+        },
+        {
+          "text": "mystery"
+        },
+        {
+          "text": "Mystery book"
+        },
+        {
+          "text": "Suggest me a thriller"
+        },
+        {
+          "text": "thriller books"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "genre_romance",
+      "examples": [
+        {
+          "text": "romance"
+        },
+        {
+          "text": "romantic book"
+        },
+        {
+          "text": "suggest me a romance book"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "goodbye",
+      "examples": [
+        {
+          "text": "bye"
+        },
+        {
+          "text": "see you"
+        },
+        {
+          "text": "talk later"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "greats",
+      "examples": [
+        {
+          "text": "How are you"
+        },
+        {
+          "text": "what abut you"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "greetings",
+      "examples": [
+        {
+          "text": "Hello"
+        },
+        {
+          "text": "Hey"
+        },
+        {
+          "text": "Hi"
+        },
+        {
+          "text": "Howdy"
+        },
+        {
+          "text": "what's up"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "more",
+      "examples": [
+        {
+          "text": "i want more genre"
+        },
+        {
+          "text": "i want more suggetion on genre"
+        },
+        {
+          "text": "more"
+        },
+        {
+          "text": "more genre"
+        },
+        {
+          "text": "yes i want more"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "recommend_book",
+      "examples": [
+        {
+          "text": "any book suggestion"
+        },
+        {
+          "text": "any suggetion"
+        },
+        {
+          "text": "Give me a book"
+        },
+        {
+          "text": "I want a book"
+        },
+        {
+          "text": "Recommend me a book"
+        },
+        {
+          "text": "Suggest me a book"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "thanks",
+      "examples": [
+        {
+          "text": "no , thanks"
+        },
+        {
+          "text": "Thanks"
+        },
+        {
+          "text": "Thank you"
+        },
+        {
+          "text": "That was helpful"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "genre",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "fantasy",
+          "synonyms": [
+            " dragons",
+            "fictional",
+            "magical",
+            "supernatural"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "horror",
+          "synonyms": [
+            "creepy",
+            "ghost story",
+            "scary",
+            "spooky"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "mystery",
+          "synonyms": [
+            "criminal",
+            "detective",
+            "suspense"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "romance",
+          "synonyms": [
+            "love story",
+            "relationship drama",
+            "romantic"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "science fiction",
+          "synonyms": [
+            "aliens",
+            "futuristic",
+            "sci-fi",
+            "space"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "thriller",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Thanks Node",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "You're welcome! Happy reading! 📚"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#thanks",
+      "dialog_node": "node_1_1753875616853",
+      "previous_sibling": "node_4_1753952488721"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sorry, I didn’t catch that genre. Please choose from mystery, romance, fantasy, or science fiction."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1753870429208",
+      "context": {
+        "genre": null
+      },
+      "conditions": "$genre",
+      "dialog_node": "node_1_1753884465608",
+      "previous_sibling": "node_3_1753952172992"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "It  – Stephen King  "
+              },
+              {
+                "text": "The Shining – Stephen King  "
+              },
+              {
+                "text": "Dracula  – Bram Stoker  "
+              },
+              {
+                "text": "The Haunting of Hill House – Shirley Jackson "
+              },
+              {
+                "text": " Pet Sematary – Stephen King  "
+              },
+              {
+                "text": "Bird Box  – Josh Malerman  "
+              },
+              {
+                "text": "Bird Box – Josh Malerman  "
+              },
+              {
+                "text": "Mexican Gothic – Silvia Moreno-Garcia"
+              },
+              {
+                "text": " The Exorcist – William Peter Blatty  "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1753870429208",
+      "conditions": "@genre:horror",
+      "dialog_node": "node_3_1753952172992",
+      "previous_sibling": "node_9_1753881866896"
+    },
+    {
+      "type": "standard",
+      "title": "Recommend Book Node",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sure! What kind of books do you like — fiction, mystery, self-help, or romance . . . ?"
+              },
+              {
+                "text": "Sure! What genre are you interested in? (e.g., thriller, fantasy, horror . . . )"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "context": {},
+      "conditions": "#book_recommendation || #recommend_book",
+      "dialog_node": "node_4_1753870429208",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Check out Harry Potter by J.K. Rowling."
+              },
+              {
+                "text": "I suggest The Alchemist by Paulo Coelho. It's a great fictional read!"
+              },
+              {
+                "text": "Normal People – Sally Rooney  "
+              },
+              {
+                "text": "The Goldfinch – Donna Tartt "
+              },
+              {
+                "text": "The Night Circus – Erin Morgenstern"
+              },
+              {
+                "text": "  Little Fires Everywhere  – Celeste Ng"
+              },
+              {
+                "text": "  Shantaram – Gregory David Roberts"
+              },
+              {
+                "text": "  Circe – Madeline Miller  "
+              },
+              {
+                "text": "Anxious People – Fredrik Backman"
+              },
+              {
+                "text": " Cloud Atlas – David Mitchell"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "parent": "node_4_1753870429208",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_4_1753870429208"
+      },
+      "conditions": "@genre:fantasy",
+      "dialog_node": "node_4_1753881865720",
+      "previous_sibling": "node_8_1753881864337"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Do you want more suggetions."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_4_1753870429208"
+      },
+      "conditions": "#more",
+      "dialog_node": "node_4_1753947480693",
+      "previous_sibling": "node_4_1753870429208"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I'm glad you liked it!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "",
+      "dialog_node": "node_4_1753952488721",
+      "previous_sibling": "node_4_1753947480693"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": " Murder on the Orient Express – Agatha Christie"
+              },
+              {
+                "text": " The Hound of the Baskervilles – Arthur Conan Doyle"
+              },
+              {
+                "text": "You might enjoy Gone Girl by Gillian Flynn. It's a popular mystery novel!"
+              },
+              {
+                "text": " The Maltese Falcon – Dashiell Hammett"
+              },
+              {
+                "text": " Murder on the Orient Express – Agatha Christie"
+              },
+              {
+                "text": "You might enjoy Gone Girl by Gillian Flynn. It's a popular mystery novel!"
+              },
+              {
+                "text": "If you enjoy mysteries, I recommend The Girl with the Dragon Tattoo by Stieg Larsson"
+              },
+              {
+                "text": "The Da Vinci Code* – Dan Brown  "
+              },
+              {
+                "text": "Big Little Lies* – Liane Moriarty "
+              },
+              {
+                "text": "Still Life* – Louise Penny "
+              },
+              {
+                "text": "The Cuckoo’s Calling* – Robert Galbraith"
+              },
+              {
+                "text": "In the Woods   – Tana French"
+              },
+              {
+                "text": " The Maltese Falcon – Dashiell Hammett\n"
+              },
+              {
+                "text": " The Hound of the Baskervilles – Arthur Conan Doyle"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1753870429208",
+      "context": {
+        "genre": "@genre"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_4_1753870429208"
+      },
+      "conditions": "@genre:mystery",
+      "dialog_node": "node_8_1753881746705"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Me Before You  -  Jojo Moyes."
+              },
+              {
+                "text": "The Notebook  -  Nicholas Sparks or "
+              },
+              {
+                "text": "Pride and Prejudice  – Jane Austen "
+              },
+              {
+                "text": "Me Before You  – Jojo Moyes "
+              },
+              {
+                "text": "The Notebook  – Nicholas Sparks"
+              },
+              {
+                "text": "It Ends With Us  – Colleen Hoover "
+              },
+              {
+                "text": "The Time Traveler’s Wife  – Audrey Niffenegger"
+              },
+              {
+                "text": "Outlander  – Diana Gabaldon "
+              },
+              {
+                "text": "The Fault in Our Stars  – John Green "
+              },
+              {
+                "text": "Twilight – Stephenie Meyer  "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "parent": "node_4_1753870429208",
+      "context": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_4_1753870429208"
+      },
+      "conditions": "@genre:romance",
+      "dialog_node": "node_8_1753881864337",
+      "previous_sibling": "node_8_1753881746705"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Read Dune by Frank Herbert."
+              },
+              {
+                "text": "The Left Hand of Darkness – Ursula K. Le Guin  "
+              },
+              {
+                "text": "Hyperion – Dan Simmons  "
+              },
+              {
+                "text": "Red Mars – Kim Stanley Robinson"
+              },
+              {
+                "text": "  Project Hail Mary – Andy Weir "
+              },
+              {
+                "text": " Fahrenheit 451  – Ray Bradbury "
+              },
+              {
+                "text": "The Three-Body Problem – Liu Cixin"
+              },
+              {
+                "text": "  Ready Player One – Ernest Cline"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1753870429208",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_4_1753870429208"
+      },
+      "conditions": "@genre:(science fiction)",
+      "dialog_node": "node_9_1753881866896",
+      "previous_sibling": "node_4_1753881865720"
+    },
+    {
+      "type": "standard",
+      "title": "Greeting Node",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello! I'm PagePal. How can I help you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#greetings",
+      "digress_in": "does_not_return",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [
+    {
+      "text": "Hi"
+    }
+  ],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above",
+      "use_connect_to_support_prompt": "Connect to support",
+      "single_answer_clarification_prompt": "Something else"
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "language": "en",
+  "description": "",
+  "name": "PagePal-dialog"
+}
